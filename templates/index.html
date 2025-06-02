@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hyderabad Restaurants Visualizations</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .visualization, .powerbi-dashboard {
+      margin: 30px 0;
+      padding: 25px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .visualization p {
+  font-size: 1rem;
+  margin-top: 12px;
+  padding: 0 10px;
+  line-height: 1.5;
+  color: #444;
+}
+
+ .visualization:hover, .powerbi-dashboard:hover {
+      transform: translateY(-4px);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 0 auto;
+      transition: box-shadow 0.3s;
+    }
+
+    img:hover {
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #e0f2f1;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 20px 10px;
+      }
+
+      .visualization, .powerbi-dashboard {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Hyderabad Restaurants Data Visualizations</h1>
+  </header>
+
+  <main>
+    <!-- Existing visualizations updated with insights below -->
+    <div class="visualization">
+      <h2>Ratings Distribution Histogram</h2>
+      <img src="data:image/png;base64,{{ rating_histogram }}" alt="Ratings Histogram" />
+      <p><strong>Insight:</strong> {{ insights.rating | safe }}</p>
+    </div>
+    
+    <div class="visualization">
+      <h2>Price for One Distribution</h2>
+      <img src="data:image/png;base64,{{ price_histogram }}" alt="Price Histogram" />
+      <p><strong>Insight:</strong> {{ insights.price | safe }}</p>
+    </div>
+    
+    <div class="visualization">
+      <h2>Top 10 Cuisines</h2>
+      <img src="data:image/png;base64,{{ cuisine_bar }}" alt="Top Cuisines" />
+      <p><strong>Insight:</strong> {{ insights.cuisine | safe }}</p>
+    </div>
+    
+    <div class="visualization">
+      <h2>Top 10 Expensive Restaurants</h2>
+      <img src="data:image/png;base64,{{ exp_rest }}" alt="Top Expensive Restaurants" />
+      <p><strong>Insight:</strong> {{ insights.expensive | safe }}</p>
+    </div>
+    
+    <div class="visualization">
+      <h2>Scatter Plot: Price vs Ratings</h2>
+      <img src="data:image/png;base64,{{ scatter_plot }}" alt="Scatter Plot" />
+      <p><strong>Insight:</strong> {{ insights.scatter | safe }}</p>
+    </div>
+    
+    <div class="visualization">
+      <h2>Top 10 Cuisines by Avg Rating</h2>
+      <img src="data:image/png;base64,{{ top_cuisine_plot }}" alt="Top Cuisines by Rating" />
+      <p><strong>Insight:</strong> {{ insights.top_cuisine | safe }}</p>
+    </div>    
+<div class="mb-5">
+  <h3>7. Power BI Visualization</h3>
+  <img src="{{ powerbi_image }}" class="img-fluid rounded shadow-sm" alt="Power BI Screenshot">
+</div>
+  </main>
+
+  <footer>
+    © 2025 Hyderabad Restaurant Analytics | Designed by Ramprabhakar M
+  </footer>
+
+  <script>
+    console.log("Page loaded and ready.");
+  </script>
+
+</body>
+</html>
